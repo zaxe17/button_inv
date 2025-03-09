@@ -47,7 +47,7 @@ const App = () => {
 					))}
 				</div>
 			</div>
-			<div className="absolute flex gap-8 bottom-1/12 left-1/2 transform -translate-x-1/2 text-md lg:text-3xl text-neutral-100">
+			<div className="absolute flex gap-8 bottom-1/12 left-1/2 transform -translate-x-1/2 text-2xl lg:text-3xl text-neutral-100">
 				<a href="https://www.instagram.com/zaxe.jm/">
 					<FaSquareInstagram />
 				</a>
