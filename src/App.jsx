@@ -6,14 +6,14 @@ import { FaSquareInstagram, FaLinkedin, FaGithub, FaFacebook } from "react-icons
 
 const App = () => {
 	return (
-		<div className="relative w-screen h-screen overflow-hidden flex items-center justify-center">
+		<div className="relative w-screen h-screen overflow-hidden flex items-center justify-center select-none">
 			<div className="absolute top-0 left-0 w-full h-full z-0">
 				<Starbg />
 			</div>
 
 			<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5/6 lg:w-7/12">
 				<h1 className="text-neutral-100 text-center text-sm/10 lg:text-3xl/15 tracking-[5px] lg:tracking-[15px] uppercase text-shadow-white">
-					Join my Discord server or invite my bot to your server!
+					Join my Discord server or invite bot to your server!
 				</h1>
 
 				<div className="flex items-center justify-center gap-6 lg:gap-10 mt-10 font-thin tracking-[15px]">
