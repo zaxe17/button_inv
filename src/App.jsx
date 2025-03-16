@@ -1,8 +1,38 @@
 import Starbg from "./Starbg";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import { button } from "./var";
-import { FaSquareInstagram, FaLinkedin, FaGithub, FaFacebook } from "react-icons/fa6";
+import {
+	FaSquareInstagram,
+	FaLinkedin,
+	FaGithub,
+	FaFacebook,
+} from "react-icons/fa6";
 
+const headline = "Join my Discord server or invite bot to your server!";
+const letters = headline.split("");
+
+const socialLinks = [
+	{
+		href: "https://www.instagram.com/zaxe.jm/",
+		icon: <FaSquareInstagram />,
+		label: "Instagram",
+	},
+	{
+		href: "https://www.linkedin.com/in/jan-marc-jacolbia-b86a00296/",
+		icon: <FaLinkedin />,
+		label: "LinkedIn",
+	},
+	{
+		href: "https://github.com/zaxe17",
+		icon: <FaGithub />,
+		label: "GitHub",
+	},
+	{
+		href: "https://www.facebook.com/janmarc.soberanojacolbia.9",
+		icon: <FaFacebook />,
+		label: "Facebook",
+	},
+];
 
 const App = () => {
 	return (
@@ -12,9 +42,22 @@ const App = () => {
 			</div>
 
 			<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5/6 lg:w-7/12">
-				<h1 className="text-neutral-100 text-center text-sm/10 lg:text-3xl/15 tracking-[5px] lg:tracking-[15px] uppercase text-shadow-white">
-					Join my Discord server or invite bot to your server!
-				</h1>
+				<div className="text-center">
+					{letters.map((letter, index) => (
+						<motion.h1
+							key={index}
+							className="text-neutral-100 text-sm/10 lg:text-3xl/15 tracking-[5px] lg:tracking-[15px] uppercase text-shadow-white inline-block"
+							initial={{
+								filter: "blur(10px)",
+								opacity: 0,
+								y: 12,
+							}}
+							animate={{ filter: "blur(0)", opacity: 1, y: 0 }}
+							transition={{ duration: 0.5, delay: 0.1 * index }}>
+							{letter === " " ? "\u00A0" : letter}
+						</motion.h1>
+					))}
+				</div>
 
 				<div className="flex items-center justify-center gap-6 lg:gap-10 mt-10 font-thin tracking-[15px]">
 					{button.map((btn, index) => (
@@ -48,18 +91,23 @@ const App = () => {
 				</div>
 			</div>
 			<div className="absolute flex gap-8 bottom-1/12 left-1/2 transform -translate-x-1/2 text-xl lg:text-3xl text-neutral-100">
-				<a href="https://www.instagram.com/zaxe.jm/">
-					<FaSquareInstagram />
-				</a>
-				<a href="https://www.linkedin.com/in/jan-marc-jacolbia-b86a00296/">
-					<FaLinkedin />
-				</a>
-				<a href="https://github.com/zaxe17">
-					<FaGithub />
-				</a>
-				<a href="https://www.facebook.com/janmarc.soberanojacolbia.9">
-					<FaFacebook />
-				</a>
+				{socialLinks.map((link, index) => (
+					<motion.a
+						key={index}
+						href={link.href}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label={link.label}
+						initial={{
+							filter: "blur(10px)",
+							opacity: 0,
+							y: 12,
+						}}
+						animate={{ filter: "blur(0)", opacity: 1, y: 0 }}
+						transition={{ duration: 0.5, delay: 0.1 * index }}>
+						{link.icon}
+					</motion.a>
+				))}
 			</div>
 		</div>
 	);
